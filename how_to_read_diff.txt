@@ -1,0 +1,18 @@
+parse_ok: both files were valid Python.
+nodes_a, nodes_b: the number of syntax-tree nodes in each solution. 
+identical_after_normalization: true means the cleaned-up trees match exactly, including operators and constants. It’s the strictest check.
+node_sequence_similarity: 0 to 1, how closely the sequences of node types line up. 1.0 means identical.
+tree_edit_distance: the minimum number of node insertions, deletions or relabels needed to turn one tree into the other. 0 means identical.
+tree_edit_distance_normalized: that distance divided by the larger tree’s size. 0 means identical, and values near 1 mean very different.
+
+tokens compares the code as a sequence of lexical tokens. Comments and whitespace are dropped, and all variable names, numbers and strings are replaced by placeholders.
+
+tokens_a, tokens_b: token counts. 51 versus 52 means the files differ by about one token.
+token_similarity: 0 to 1, with 1.0 meaning an identical token sequence.
+
+copydetect is the winnowing-based overlap detector.
+
+mine_covered_by_lcb: the fraction of your file that is matched by something in the LCB file. 1.0 means everything in yours appears in theirs.
+lcb_covered_by_mine: the same measure in the other direction. The two numbers differ when the files have different lengths.
+overlap_size: how many matched units copydetect found.
+noise_t, guarantee_t: the match-length thresholds I set to 5. They are lowered from the default 25 because the solutions are short. Keep them the same across all runs so scores stay comparable.
